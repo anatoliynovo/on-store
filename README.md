@@ -2,6 +2,6 @@
 
 Full functional online shopping store build with React using [Commerce.js](https://commercejs.com/)
 
-#Demo
+# Demo
 
 https://commerce-on-store.netlify.app/
