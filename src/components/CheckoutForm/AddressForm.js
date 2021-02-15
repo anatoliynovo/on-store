@@ -30,7 +30,7 @@ function AddressForm({ checkoutToken, next }) {
 
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
-    console.log(countries);
+    
   };
 
   const fetchSubdivisions = async (countryCode) => {
@@ -40,7 +40,7 @@ function AddressForm({ checkoutToken, next }) {
 
     setShippingSubdivisions(subdivisions);
     setShippingSubdivision(Object.keys(subdivisions)[0]);
-    console.log(subdivisions);
+    
   };
 
   const fetchShippingOptions = async (
@@ -55,6 +55,7 @@ function AddressForm({ checkoutToken, next }) {
 
     setShippingOptions(options);
     setShippingOption(options[0].id);
+
   };
 
   useEffect(() => {
@@ -129,11 +130,11 @@ function AddressForm({ checkoutToken, next }) {
               >
                 {shippingOptions
                   .map((sO) => ({
-                    id: sO,
+                    id: sO.id,
                     label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
                   }))
                   .map((item) => (
-                    <MenuItem key={item.id} value={item.label}>
+                    <MenuItem key={item.id} value={item.id}>
                       {item.label}
                     </MenuItem>
                   ))}
@@ -142,7 +143,7 @@ function AddressForm({ checkoutToken, next }) {
           </Grid>
           <br />
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '5em'}}>
-            <Button component={Link} to='/cart' variant='contained'>
+            <Button component={Link} to='/cart' variant='outlined'>
               Back to Cart
             </Button>
             <Button type='submit' variant='contained' color='primary'>
